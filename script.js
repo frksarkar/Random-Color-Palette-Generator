@@ -31,8 +31,7 @@ const colorPlateSet = () => {
 	const color = generateColor();
 	const colorBox = `<li class="color" onclick="colorCodeCopy(this)">
 	<div class="rect-box" style="background-color: ${color}"></div>
-	<span class="hex-value">${color.toUpperCase()}</span>
-</li>`;
+	<span class="hex-value">${color.toUpperCase()}</span></li>`;
 
 	return colorBox;
 };
@@ -41,8 +40,11 @@ function colorTag() {
 	for (let index = 0; index < value.colorBoxQuantity; index++) {
 		container.insertAdjacentHTML('afterbegin', colorPlateSet());
 	}
+	console.log(value.colorBoxQuantity);
 }
 
 colorTag();
 
-refreshBtn.addEventListener('click', colorTag);
+refreshBtn.addEventListener('click', () => {
+	window.location.reload();
+});
